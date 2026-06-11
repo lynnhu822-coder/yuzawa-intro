@@ -204,7 +204,7 @@ nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to b
 .photo-grid-2 img{width:100%;height:auto;display:block;}
 
 /* YouTube */
-.yt-wrap{position:relative;padding-bottom:42%;background:#000;overflow:hidden;}
+.yt-wrap{position:relative;padding-bottom:56.25%;background:#000;overflow:hidden;}
 .yt-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 
 /* 特色 grid — 石打 2欄不對稱 */
@@ -447,8 +447,8 @@ footer { border-top:1px solid rgba(245,243,239,.07); padding:40px 60px; display:
 .yukiguni-photo{position:relative;width:100%;overflow:hidden;}
 .yukiguni-photo img{width:100%;height:auto;display:block;min-height:300px;object-fit:cover;object-position:center 40%;}
 .yukiguni-photo-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(22,29,36,0) 0%,rgba(22,29,36,0) 45%,rgba(22,29,36,.55) 70%,rgba(22,29,36,.75) 100%);}
-.yukiguni-photo-quote{position:absolute;bottom:8%;left:50%;transform:translateX(-50%);width:90%;max-width:900px;text-align:center;z-index:2;}
-.yukiguni-photo-quote .jp{font-family:'Shippori Mincho',serif;font-size:clamp(22px,4vw,48px);font-weight:400;color:var(--snow);letter-spacing:8px;line-height:1.7;text-shadow:0 2px 20px rgba(0,0,0,.6);}
+.yukiguni-photo-quote{position:absolute;bottom:8%;left:5%;transform:none;width:90%;max-width:900px;text-align:left;z-index:2;}
+.yukiguni-photo-quote .jp{font-family:'Shippori Mincho',serif;font-size:clamp(16px,3.5vw,40px);font-weight:400;color:var(--snow);letter-spacing:6px;line-height:1.7;text-shadow:0 2px 20px rgba(0,0,0,.6);}
 .yukiguni-photo-quote .en{font-family:'Shippori Mincho',serif;font-size:clamp(11px,1.2vw,14px);font-style:italic;color:rgba(245,243,239,.55);letter-spacing:3px;margin-top:16px;display:block;text-shadow:0 1px 8px rgba(0,0,0,.8);}
 .yukiguni-text{background:var(--ink-deep);padding:52px 60px;}
 .yukiguni-text-inner{max-width:760px;margin:0 auto;}
@@ -503,7 +503,8 @@ footer { border-top:1px solid rgba(245,243,239,.07); padding:40px 60px; display:
 }
 
 /* 層三：橫向滾動 Gallery */
-.resort-gallery{overflow-x:auto;display:flex;gap:3px;scrollbar-width:none;padding-bottom:0;}
+.resort-gallery{overflow-x:auto;display:flex;gap:3px;scrollbar-width:none;padding-bottom:0;-webkit-overflow-scrolling:touch;cursor:grab;}
+.resort-gallery.grabbing{cursor:grabbing;}
 .resort-gallery::-webkit-scrollbar{display:none;}
 .resort-gallery-item{flex:0 0 auto;width:400px;overflow:hidden;}
 .resort-gallery-item img{width:100%;height:240px;object-fit:cover;display:block;transition:transform .6s;}
@@ -1315,6 +1316,29 @@ const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
 },{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Drag to scroll - resort galleries
+(function(){
+  document.querySelectorAll('.resort-gallery').forEach(function(grid){
+    var isDown = false, startX, scrollLeft;
+    grid.addEventListener('mousedown', function(e){
+      isDown = true;
+      grid.classList.add('grabbing');
+      startX = e.pageX - grid.offsetLeft;
+      scrollLeft = grid.scrollLeft;
+      e.preventDefault();
+    });
+    document.addEventListener('mouseup', function(){
+      isDown = false;
+      grid.classList.remove('grabbing');
+    });
+    document.addEventListener('mousemove', function(e){
+      if(!isDown) return;
+      var x = e.pageX - grid.offsetLeft;
+      grid.scrollLeft = scrollLeft - (x - startX) * 1.5;
+    });
+  });
+})();
 </script>
 </body>
 </html>
