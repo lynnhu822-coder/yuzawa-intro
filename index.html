@@ -112,7 +112,7 @@ nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to b
 @media(max-width:768px){
   .yukiguni-content{padding:60px 24px;}
   .yukiguni-deco{display:none;}
-  .yukiguni-quote{font-size:clamp(18px,5vw,24px);letter-spacing:4px;}
+  .yukiguni-quote{font-size:16px;letter-spacing:3px;}
 }
 
 /* ══ SECTION 共用 ══ */
@@ -129,7 +129,7 @@ nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to b
 
 /* ══ 差異化三欄 — 為什麼越後湯澤 ══ */
 .why-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin-top:0;}
-.why-card{padding:48px 40px;background:var(--ink-mid);border:1px solid rgba(245,243,239,.07);position:relative;overflow:hidden;transition:border-color .35s;cursor:none;}
+.why-card{background:var(--ink-mid);border:1px solid rgba(245,243,239,.07);position:relative;overflow:hidden;transition:border-color .35s;cursor:none;}
 .why-card:hover{border-color:rgba(0,53,142,.4);}
 .why-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--brand);transition:height .4s;}
 .why-card:hover::before{height:100%;}
@@ -313,18 +313,24 @@ footer { border-top:1px solid rgba(245,243,239,.07); padding:40px 60px; display:
   .floating-messenger{padding:13px;border-radius:50%;}
   .hero-content{padding:0 24px 72px;}
   .hero-pillars{gap:20px;}
+  .hero-jp{letter-spacing:6px;}
   .section{padding:72px 0;}
+  .section-heading{font-size:clamp(36px,8vw,48px);}
   .inner{padding:0 24px;}
   .why-grid{grid-template-columns:1fr;}
   .photo-duo{grid-template-columns:1fr;}
   .photo-duo-item{height:260px;}
   .resort-hero-content,.resort-hero-content.right{padding:20px 20px;text-align:left;}
   .resort-body{padding:0 24px 60px;}
+  .feat-row-body{padding:16px 20px;}
   .resort-intro,.resort-intro.reverse{grid-template-columns:1fr;gap:32px;padding:40px 0;}
   .photo-grid-3{grid-template-columns:1fr 1fr;}
   .photo-grid-2{grid-template-columns:1fr;}
   .feat-grid-2{grid-template-columns:1fr;}
   .feat-card{padding:20px;}
+  [style*="padding:32px 60px"]{padding:24px 24px 0!important;}
+  [style*="padding:12px 60px"]{padding:8px 24px 0!important;}
+  [style*="padding:16px 60px"]{padding:8px 24px 0!important;}
   .feat-wide{grid-column:span 1;}
   .bridge{padding:40px 24px;}
   .bridge-inner{grid-template-columns:1fr;gap:24px;}
@@ -433,6 +439,7 @@ footer { border-top:1px solid rgba(245,243,239,.07); padding:40px 60px; display:
   .itin-tab{flex:1;text-align:center;padding:12px 8px;font-size:13px;}
   .itin-day{grid-template-columns:60px 1fr;}
   .itin-day-body{padding:18px 20px;}
+  .cc-row{grid-template-columns:1fr;gap:2px;}
 }
 
 /* ══ 雪國敘事 v2 — 上下分割 ══ */
