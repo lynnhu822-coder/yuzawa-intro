@@ -18,8 +18,8 @@
   --charcoal:#53565A;
   --yellow:#D4F53C;
 }
-html{scroll-behavior:smooth;}
-body{background:var(--ink);color:var(--snow);font-family:'Noto Sans TC',sans-serif;font-weight:400;overflow-x:hidden;cursor:none;}
+html{scroll-behavior:smooth;overflow-x:clip;}
+body{background:var(--ink);color:var(--snow);font-family:'Noto Sans TC',sans-serif;font-weight:400;cursor:none;}
 
 .cursor{position:fixed;width:8px;height:8px;background:var(--snow);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s;mix-blend-mode:difference;}
 .cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(245,243,239,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .15s;mix-blend-mode:difference;}
@@ -85,10 +85,6 @@ nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to b
 .btn-line:hover{color:var(--snow);border-color:rgba(245,243,239,.7);}
 .btn-line::after{content:'→';transition:transform .3s;}
 .btn-line:hover::after{transform:translateX(4px);}
-.scroll-hint{position:absolute;bottom:44px;right:60px;z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;animation:fadeUp .9s ease 1.1s both;}
-.scroll-hint span{font-size:9px;letter-spacing:3px;color:rgba(245,243,239,.4);writing-mode:vertical-rl;text-transform:uppercase;}
-.scroll-line{width:1px;height:44px;background:rgba(245,243,239,.2);animation:scrollPulse 2s ease-in-out infinite;}
-@keyframes scrollPulse{0%,100%{opacity:.25;transform:scaleY(1)}50%{opacity:1;transform:scaleY(.55)}}
 
 /* ══ MARQUEE ══ */
 .marquee-wrap{overflow:hidden;border-top:1px solid rgba(245,243,239,.05);border-bottom:1px solid rgba(245,243,239,.05);padding:16px 0;background:var(--ink-mid);}
@@ -213,7 +209,7 @@ nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to b
 
 /* 特色 grid — 石打 2欄不對稱 */
 .feat-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:0;}
-.feat-card{background:rgba(255,255,255,.02);border:1px solid rgba(245,243,239,.06);padding:34px;position:relative;overflow:hidden;transition:border-color .3s;cursor:none;}
+.feat-card{background:rgba(255,255,255,.02);border:1px solid rgba(245,243,239,.06);padding:24px;position:relative;overflow:hidden;transition:border-color .3s;cursor:none;}
 .feat-card:hover{border-color:rgba(212,245,60,.2);}
 .feat-n{font-family:'Bebas Neue',sans-serif;font-size:80px;color:rgba(245,243,239,.04);position:absolute;bottom:-6px;right:16px;}
 .feat-t{font-family:'Shippori Mincho',serif;font-size:18px;font-weight:700;color:var(--snow);letter-spacing:2px;margin-bottom:9px;position:relative;z-index:1;}
@@ -225,12 +221,12 @@ nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to b
 .feat-row:hover{border-color:rgba(200,218,234,.25);}
 .feat-row-idx{background:rgba(200,218,234,.05);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:15px;color:rgba(245,243,239,.18);writing-mode:vertical-rl;transition:background .3s;}
 .feat-row:hover .feat-row-idx{background:rgba(200,218,234,.1);}
-.feat-row-body{padding:26px 30px;}
+.feat-row-body{padding:20px 24px;}
 .feat-row-t{font-family:'Shippori Mincho',serif;font-size:18px;font-weight:700;color:var(--snow);letter-spacing:2px;margin-bottom:7px;}
 .feat-row-d{font-size:15px;color:rgba(245,243,239,.55);line-height:1.9;letter-spacing:.4px;}
 
 /* ══ 過渡橋 ══ */
-.bridge{background:var(--ink-deep);padding:52px 60px;border-top:1px solid rgba(245,243,239,.06);}
+.bridge{background:var(--ink-deep);padding:40px 60px;border-top:1px solid rgba(245,243,239,.06);}
 .bridge-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;}
 .bridge-eyebrow{font-size:11px;letter-spacing:3px;color:rgba(245,243,239,.28);margin-bottom:10px;font-family:'Bebas Neue',sans-serif;}
 .bridge-text{font-family:'Shippori Mincho',serif;font-size:18px;color:rgba(245,243,239,.68);letter-spacing:2px;line-height:1.6;}
@@ -316,19 +312,19 @@ footer { border-top:1px solid rgba(245,243,239,.07); padding:40px 60px; display:
   .floating-messenger .fm-text{display:none;}
   .floating-messenger{padding:13px;border-radius:50%;}
   .hero-content{padding:0 24px 72px;}
-  .scroll-hint{right:20px;}
   .hero-pillars{gap:20px;}
   .section{padding:72px 0;}
   .inner{padding:0 24px;}
   .why-grid{grid-template-columns:1fr;}
   .photo-duo{grid-template-columns:1fr;}
   .photo-duo-item{height:260px;}
-  .resort-hero-content,.resort-hero-content.right{padding:28px 24px;text-align:left;}
+  .resort-hero-content,.resort-hero-content.right{padding:20px 20px;text-align:left;}
   .resort-body{padding:0 24px 60px;}
   .resort-intro,.resort-intro.reverse{grid-template-columns:1fr;gap:32px;padding:40px 0;}
   .photo-grid-3{grid-template-columns:1fr 1fr;}
   .photo-grid-2{grid-template-columns:1fr;}
   .feat-grid-2{grid-template-columns:1fr;}
+  .feat-card{padding:20px;}
   .feat-wide{grid-column:span 1;}
   .bridge{padding:40px 24px;}
   .bridge-inner{grid-template-columns:1fr;gap:24px;}
@@ -347,7 +343,7 @@ footer { border-top:1px solid rgba(245,243,239,.07); padding:40px 60px; display:
 @media(max-width:768px){.why-card-img{height:160px;margin:-48px -24px 20px;}}
 
 /* ══ 雪場「一天的故事」敘事 ══ */
-.story-block{padding:56px 60px 0;max-width:1200px;margin:0 auto;}
+.story-block{padding:40px 60px 0;max-width:1200px;margin:0 auto;}
 .story-quote{font-family:'Shippori Mincho',serif;font-size:clamp(17px,2.2vw,22px);color:rgba(245,243,239,.85);line-height:2;letter-spacing:2px;margin-bottom:36px;padding-left:20px;border-left:2px solid rgba(212,245,60,.35);}
 .story-quote.ice{border-left-color:rgba(200,218,234,.35);}
 .story-expand-btn{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:3px;color:var(--ink);background:var(--yellow);border:none;padding:14px 28px;cursor:pointer;transition:all .3s;display:inline-flex;align-items:center;gap:12px;margin-bottom:52px;}
@@ -359,7 +355,7 @@ footer { border-top:1px solid rgba(245,243,239,.07); padding:40px 60px; display:
 .story-details{display:none;}
 .story-details.open{display:block;}
 .story-preview{margin-bottom:0;}
-@media(max-width:768px){.story-block{padding:40px 24px 0;}}
+@media(max-width:768px){.story-block{padding:28px 24px 0;}}
 
 /* ══ Beyond 升級 — 圖文卡片 ══ */
 .beyond-section{background:var(--ink);padding:100px 0;}
@@ -443,8 +439,8 @@ footer { border-top:1px solid rgba(245,243,239,.07); padding:40px 60px; display:
 .yukiguni-v2{width:100%;}
 .yukiguni-photo{position:relative;width:100%;overflow:hidden;}
 .yukiguni-photo img{width:100%;height:auto;display:block;min-height:300px;object-fit:cover;object-position:center 40%;}
-.yukiguni-photo-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(22,29,36,.08) 0%,rgba(22,29,36,.18) 60%,rgba(22,29,36,.55) 100%);}
-.yukiguni-photo-quote{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:90%;max-width:900px;text-align:center;z-index:2;}
+.yukiguni-photo-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(22,29,36,0) 0%,rgba(22,29,36,0) 45%,rgba(22,29,36,.55) 70%,rgba(22,29,36,.75) 100%);}
+.yukiguni-photo-quote{position:absolute;bottom:8%;left:50%;transform:translateX(-50%);width:90%;max-width:900px;text-align:center;z-index:2;}
 .yukiguni-photo-quote .jp{font-family:'Shippori Mincho',serif;font-size:clamp(22px,4vw,48px);font-weight:400;color:var(--snow);letter-spacing:8px;line-height:1.7;text-shadow:0 2px 20px rgba(0,0,0,.6);}
 .yukiguni-photo-quote .en{font-family:'Shippori Mincho',serif;font-size:clamp(11px,1.2vw,14px);font-style:italic;color:rgba(245,243,239,.55);letter-spacing:3px;margin-top:16px;display:block;text-shadow:0 1px 8px rgba(0,0,0,.8);}
 .yukiguni-text{background:var(--ink-deep);padding:52px 60px;}
@@ -474,7 +470,7 @@ footer { border-top:1px solid rgba(245,243,239,.07); padding:40px 60px; display:
 .resort-hero-v2-content.right{text-align:right;}
 @media(max-width:768px){
   .resort-hero-v2 img{max-height:380px;}
-  .resort-hero-v2-content{padding:28px 24px;}
+  .resort-hero-v2-content{padding:20px 20px;}
   .resort-hero-v2-content.right{text-align:left;}
 }
 
@@ -483,13 +479,13 @@ footer { border-top:1px solid rgba(245,243,239,.07); padding:40px 60px; display:
 .resort-overview-map{position:relative;}
 .resort-overview-map img{width:100%;height:auto;display:block;}
 .resort-overview-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid rgba(245,243,239,.06);border-bottom:1px solid rgba(245,243,239,.06);}
-.stat-col{padding:36px 48px;border-right:1px solid rgba(245,243,239,.06);}
+.stat-col{padding:28px 40px;border-right:1px solid rgba(245,243,239,.06);}
 .stat-col:last-child{border-right:none;}
 .stat-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,5vw,72px);color:var(--snow);line-height:1;}
 .stat-num .unit{font-size:clamp(18px,2vw,26px);color:var(--ice);margin-left:4px;}
 .stat-label{font-size:12px;letter-spacing:2px;color:rgba(245,243,239,.45);margin-top:6px;}
 .stat-diff{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
-.resort-overview-course{padding:32px 48px;}
+.resort-overview-course{padding:24px 40px;}
 @media(max-width:768px){
   .resort-overview-stats{grid-template-columns:1fr 1fr 1fr;}
   .stat-col{padding:24px 20px;}
@@ -646,7 +642,7 @@ footer { border-top:1px solid rgba(245,243,239,.07); padding:40px 60px; display:
       <a href="#resort" class="btn-line">查看私人課</a>
     </div>
   </div>
-  <div class="scroll-hint"><div class="scroll-line"></div><span>scroll</span></div>
+  <span>scroll</span></div>
 </section>
 
 <!-- MARQUEE -->
@@ -746,7 +742,6 @@ footer { border-top:1px solid rgba(245,243,239,.07); padding:40px 60px; display:
     <div class="resort-hero-v2-overlay"></div>
     <div class="resort-hero-v2-content">
       <span class="resort-badge badge-yellow">全山進階團體課</span>
-      <span class="resort-course-sub">PROGRESSION GROUP</span>
       <h2 class="resort-name" style="margin-top:10px;">ISHIUCHI<br>MARUYAMA</h2>
       <p class="resort-name-jp">い　し　う　ち　ま　る　や　ま</p>
     </div>
@@ -762,7 +757,7 @@ footer { border-top:1px solid rgba(245,243,239,.07); padding:40px 60px; display:
   <!-- 層二：地圖全寬 + 數字三欄 + 課程資訊 -->
   <div class="resort-overview reveal">
     <!-- 地圖全寬 -->
-    <div class="resort-overview-map" style="padding:32px 48px 24px;">
+    <div class="resort-overview-map" style="padding:20px 24px 16px;">
       <p class="map-label">TRAIL MAP</p>
       <h3 class="map-heading">石打丸山</h3>
       <p class="map-sub">ISHIUCHI MARUYAMA</p>
@@ -823,7 +818,7 @@ footer { border-top:1px solid rgba(245,243,239,.07); padding:40px 60px; display:
   </div>
 
   <!-- 特色 -->
-  <div style="max-width:1200px;margin:0 auto;padding:52px 60px 0;">
+  <div style="max-width:1200px;margin:0 auto;padding:32px 60px 0;">
     <div class="feat-grid-2 reveal">
       <div class="feat-card"><h4 class="feat-t">超長滑行距離</h4><p class="feat-d">最長雪道 4000m，從山頂一路滑到山腳，不同坡度風景交替出現，是越後湯澤最受進階雪友喜愛的長板線路。</p><div class="feat-n">01</div></div>
       <div class="feat-card"><h4 class="feat-t">多樣化地形與設施</h4><p class="feat-d">整雪刻滑道、不整地、粉雪、蘑菇、樹林、國際規格半管、跳台與 Box 設施，進階雪友的地形遊樂場。</p><div class="feat-n">02</div></div>
@@ -834,7 +829,7 @@ footer { border-top:1px solid rgba(245,243,239,.07); padding:40px 60px; display:
   </div>
 
   <!-- YouTube -->
-  <div style="max-width:1200px;margin:0 auto;padding:16px 60px 0;">
+  <div style="max-width:1200px;margin:0 auto;padding:12px 60px 0;">
     <div class="yt-wrap reveal">
       <iframe src="https://www.youtube.com/embed/ifbovvQNT44" title="Ishiuchi Maruyama" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
@@ -866,7 +861,6 @@ footer { border-top:1px solid rgba(245,243,239,.07); padding:40px 60px; display:
     <div class="resort-hero-v2-overlay"></div>
     <div class="resort-hero-v2-content right">
       <span class="resort-badge badge-ice">常態團體課</span>
-      <span class="resort-course-sub">BEGINNER · FAMILY</span>
       <h2 class="resort-name" style="margin-top:10px;">YUZAWA<br>NAKAZATO</h2>
       <p class="resort-name-jp">ゆ　ざ　わ　な　か　ざ　と</p>
     </div>
@@ -882,7 +876,7 @@ footer { border-top:1px solid rgba(245,243,239,.07); padding:40px 60px; display:
   <!-- 層二：地圖全寬 + 數字三欄 + 課程資訊 -->
   <div class="resort-overview reveal">
     <!-- 地圖全寬 -->
-    <div class="resort-overview-map" style="padding:32px 48px 24px;">
+    <div class="resort-overview-map" style="padding:20px 24px 16px;">
       <p class="map-label">TRAIL MAP</p>
       <h3 class="map-heading" style="color:var(--ice);">湯澤中里</h3>
       <p class="map-sub">YUZAWA NAKAZATO</p>
@@ -939,7 +933,7 @@ footer { border-top:1px solid rgba(245,243,239,.07); padding:40px 60px; display:
   </div>
 
   <!-- 特色 -->
-  <div style="max-width:1200px;margin:0 auto;padding:52px 60px 0;">
+  <div style="max-width:1200px;margin:0 auto;padding:32px 60px 0;">
     <div class="feat-list reveal">
       <div class="feat-row"><div class="feat-row-idx">01</div><div class="feat-row-body"><h4 class="feat-row-t">超好玩 Fun Ride Zone</h4><p class="feat-row-d">四個主題區域，以「邊玩邊進步」為理念，透過滑行時的各種動作自然學會如何滑雪，是最受孩子喜愛的雪場設施。</p></div></div>
       <div class="feat-row"><div class="feat-row-idx">02</div><div class="feat-row-body"><h4 class="feat-row-t">寬廣樹林道</h4><p class="feat-row-d">寬廣場內樹林區適合初中階雪友挑戰，搭配粉雪的浮遊感，盡情感受樹林與 Powder 的快感。</p></div></div>
@@ -950,7 +944,7 @@ footer { border-top:1px solid rgba(245,243,239,.07); padding:40px 60px; display:
   </div>
 
   <!-- YouTube -->
-  <div style="max-width:1200px;margin:0 auto;padding:16px 60px 40px;">
+  <div style="max-width:1200px;margin:0 auto;padding:12px 60px 32px;">
     <div class="yt-wrap reveal">
       <iframe src="https://www.youtube.com/embed/NQiKZLkugrM" title="Yuzawa Nakazato" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
@@ -1085,7 +1079,7 @@ footer { border-top:1px solid rgba(245,243,239,.07); padding:40px 60px; display:
     <div class="reveal">
       <p class="eyebrow">Plan Your Trip</p>
       <h2 class="section-heading">你打算<br>去幾天？</h2>
-      <p class="section-heading-jp" style="margin-bottom:40px;">行　程　參　考</p>
+      <p class="section-heading-jp" style="margin-bottom:40px;">こ　う　て　い　さ　ん　こ　う</p>
     </div>
     <div class="itinerary-tabs reveal">
       <button class="itin-tab active" onclick="switchTab('3d')">3 天</button>
